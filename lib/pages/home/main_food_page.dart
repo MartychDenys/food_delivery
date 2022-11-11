@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_food/colors/colors.dart';
-import 'package:my_food/home/food_page_body.dart';
+import 'package:my_food/pages/home/food_page_body.dart';
+
 import 'package:simple_kit/simple_kit.dart';
 
 class MainFoodPage extends StatelessWidget {
@@ -60,29 +61,9 @@ class MainFoodPage extends StatelessWidget {
             ),
           ),
           // showing body
-          const FoodPageBody(),
-          const SpaceH30(),
-
-          Container(
-            margin: EdgeInsets.only(left: Dimensions.width30),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                const SBigText(text: 'Popular'),
-                const SpaceW10(),
-                Container(
-                  margin: EdgeInsets.only(bottom: Dimensions.height3),
-                  child: const SBigText(
-                    text: '.',
-                    color: Colors.black26,
-                  ),
-                ),
-                const SpaceW10(),
-                Container(
-                  margin: EdgeInsets.only(bottom: Dimensions.height2),
-                  child: const SSmallText(text: 'Food pairing'),
-                ),
-              ],
+          const Expanded(
+            child: SingleChildScrollView(
+              child: FoodPageBody(),
             ),
           ),
         ],

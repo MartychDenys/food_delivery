@@ -15,4 +15,10 @@ class FColorsLight extends SimpleColors {
 
   @override
   Color textColor = const Color(0xFFccc7c5);
+
+  @override
+  Color iconColor1 = const Color(0xFFffd28d);
+
+  @override
+  Color iconColor2 = const Color(0xFFfcab88);
 }

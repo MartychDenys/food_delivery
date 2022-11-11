@@ -53,7 +53,92 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 borderRadius: BorderRadius.circular(5.0)),
           ),
         ),
+        const SpaceH30(),
         // Popular text
+        Container(
+          margin: EdgeInsets.only(left: Dimensions.width30),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              const SBigText(text: 'Popular'),
+              const SpaceW10(),
+              Container(
+                margin: EdgeInsets.only(bottom: Dimensions.height3),
+                child: const SBigText(
+                  text: '.',
+                  color: Colors.black26,
+                ),
+              ),
+              const SpaceW10(),
+              Container(
+                margin: EdgeInsets.only(bottom: Dimensions.height2),
+                child: const SSmallText(text: 'Food pairing'),
+              ),
+            ],
+          ),
+        ),
+        // list of food and images
+        ListView.builder(
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: 10,
+          itemBuilder: (context, index) => Container(
+            margin: EdgeInsets.only(
+              left: Dimensions.width20,
+              right: Dimensions.width20,
+              bottom: Dimensions.height10,
+            ),
+            child: Row(
+              children: [
+                // image section
+                Container(
+                  width: Dimensions.listViewImgSize,
+                  height: Dimensions.listViewImgSize,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(Dimensions.radius20),
+                    color: Colors.white38,
+                    image: const DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage('assets/images/food0.jpeg'),
+                    ),
+                  ),
+                ),
+
+                // text container
+                Expanded(
+                  child: Container(
+                    height: Dimensions.listViewTextContSize,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(Dimensions.radius20),
+                        bottomRight: Radius.circular(Dimensions.radius20),
+                      ),
+                      color: Colors.white,
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                        left: Dimensions.width10,
+                        right: Dimensions.width10,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          SBigText(
+                            text: 'Nutritious fruit meal in China',
+                          ),
+                          SpaceH10(),
+                          SSmallText(text: 'With chinese characteristics'),
+                          SpaceH10(),
+                          SBlockIconAndTextWidgets(),
+                        ],
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -168,26 +253,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       ],
                     ),
                     const SpaceH20(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SIconAndTextWidget(
-                          icon: Icons.circle_sharp,
-                          text: 'Normal',
-                          iconColor: AppColor.iconColor1,
-                        ),
-                        SIconAndTextWidget(
-                          icon: Icons.location_on,
-                          text: '1.7km',
-                          iconColor: AppColor.mainColor,
-                        ),
-                        SIconAndTextWidget(
-                          icon: Icons.access_time_rounded,
-                          text: '32min',
-                          iconColor: AppColor.iconColor2,
-                        ),
-                      ],
-                    )
+                    const SBlockIconAndTextWidgets(),
                   ],
                 ),
               ),
